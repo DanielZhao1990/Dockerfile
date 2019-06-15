@@ -1,0 +1,6 @@
+FROM php:7.2-cli
+ENV PROJECT_NAME cli
+ENV COMMAND_NAME think
+WORKDIR /php/"$$PROJECT_NAME"
+VOLUME /php/
+CMD [ "php", "$$PROJECT_NAME" ]
