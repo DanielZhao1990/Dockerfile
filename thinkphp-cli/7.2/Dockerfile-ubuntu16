@@ -1,0 +1,14 @@
+FROM ubuntu:16.04
+ENV COMMAND_NAME think
+RUN apt-get update
+
+
+#RUN docker-php-ext-install -j$(nproc) iconv zip soap pdo_mysql bcmath mysqli sockets
+#RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+#RUN  docker-php-ext-install -j$(nproc) gd
+
+RUN pecl install redis-4.0.1 \
+    && docker-php-ext-enable redis
+WORKDIR /php/
+VOLUME /php/
+CMD php ${COMMAND_NAME}

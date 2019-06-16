@@ -1,0 +1,11 @@
+cd /de
+docker build -f Dockerfile-t thinkphp-cli:ubuntu .
+
+
+docker run -it ubuntu:16.04 /bin/bash
+
+apt-get install software-properties-common
+
+
+ubuntu 16.04安装php7.2
+

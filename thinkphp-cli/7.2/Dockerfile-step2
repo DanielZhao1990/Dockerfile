@@ -1,0 +1,12 @@
+FROM thinkphp-cli:1.0
+
+RUN apt-get update && apt-get install -y zlib1g-dev libmemcached-dev\
+    && pecl install memcached-3.1.2 \
+    && pecl install memcache-2.2.7 \
+    && docker-php-ext-enable memcached memcache
+
+RUN docker-php-source delete
+
+WORKDIR /php/
+VOLUME /php/
+CMD php ${COMMAND_NAME}
